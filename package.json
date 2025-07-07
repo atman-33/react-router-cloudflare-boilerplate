@@ -12,7 +12,9 @@
     "dev": "react-router dev",
     "postinstall": "npm run cf-typegen",
     "preview": "npm run build && vite preview",
-    "typecheck": "npm run cf-typegen && react-router typegen && tsc -b"
+    "typecheck": "npm run cf-typegen && react-router typegen && tsc -b",
+    "check": "npm run typecheck && npm run biome:check",
+    "biome:check": "biome check --fix && biome format --write"
   },
   "dependencies": {
     "drizzle-orm": "~0.36.3",
@@ -22,6 +24,7 @@
     "react-router": "^7.5.3"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.0.6",
     "@cloudflare/vite-plugin": "^1.0.12",
     "@react-router/dev": "^7.5.3",
     "@tailwindcss/vite": "^4.1.4",
