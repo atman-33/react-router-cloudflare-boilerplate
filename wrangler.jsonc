@@ -9,8 +9,8 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "your-database-name",
-      "database_id": "your-database-id",
+      "database_name": "d1-app-test-db",
+      "database_id": "1b05145e-904f-4c9b-9234-9450cd66eb02",
       "migrations_dir": "drizzle"
     }
   ]
