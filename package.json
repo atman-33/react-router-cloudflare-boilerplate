@@ -14,7 +14,8 @@
     "preview": "npm run build && vite preview",
     "typecheck": "npm run cf-typegen && react-router typegen && tsc -b",
     "check": "npm run typecheck && npm run biome:check",
-    "biome:check": "biome check --fix && biome format --write"
+    "biome:check": "biome check --fix && biome format --write",
+    "test": "vitest"
   },
   "dependencies": {
     "drizzle-orm": "~0.36.3",
@@ -33,10 +34,12 @@
     "@types/react-dom": "^19.1.2",
     "dotenv-cli": "^7.4.3",
     "drizzle-kit": "~0.28.1",
+    "jsdom": "^26.1.0",
     "tailwindcss": "^4.1.4",
     "typescript": "^5.8.3",
     "vite": "^6.3.3",
     "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.2.4",
     "wrangler": "^4.13.2"
   }
 }
