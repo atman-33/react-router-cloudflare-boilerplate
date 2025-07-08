@@ -15,7 +15,8 @@
     "typecheck": "npm run cf-typegen && react-router typegen && tsc -b",
     "check": "npm run typecheck && npm run biome:check",
     "biome:check": "biome check --fix && biome format --write",
-    "test": "vitest"
+    "test": "vitest",
+    "prepare": "husky"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
@@ -40,6 +41,7 @@
     "@types/react-dom": "^19.1.2",
     "dotenv-cli": "^7.4.3",
     "drizzle-kit": "~0.28.1",
+    "husky": "^9.1.7",
     "tailwindcss": "^4.1.4",
     "tw-animate-css": "^1.3.5",
     "typescript": "^5.8.3",
