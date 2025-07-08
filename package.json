@@ -34,7 +34,6 @@
     "@types/react-dom": "^19.1.2",
     "dotenv-cli": "^7.4.3",
     "drizzle-kit": "~0.28.1",
-    "jsdom": "^26.1.0",
     "tailwindcss": "^4.1.4",
     "typescript": "^5.8.3",
     "vite": "^6.3.3",
