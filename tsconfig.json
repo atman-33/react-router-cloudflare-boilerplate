@@ -13,6 +13,14 @@
     "verbatimModuleSyntax": true,
     "skipLibCheck": true,
     "strict": true,
-    "noEmit": true
+    "noEmit": true,
+    "paths": {
+      "~/database/*": [
+        "./database/*"
+      ],
+      "~/*": [
+        "./app/*"
+      ]
+    }
   }
 }
