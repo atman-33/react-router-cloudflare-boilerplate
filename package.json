@@ -18,6 +18,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@react-router/fs-routes": "^7.6.3",
     "drizzle-orm": "~0.36.3",
     "isbot": "^5.1.27",
     "react": "^19.1.0",
