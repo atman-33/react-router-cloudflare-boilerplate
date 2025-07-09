@@ -8,6 +8,7 @@
   "files": {
     "includes": [
       "app/**/*.ts",
+      "database/**/*.ts",
       "!worker-configuration.d.ts",
       "!.react-router/**/*"
     ],

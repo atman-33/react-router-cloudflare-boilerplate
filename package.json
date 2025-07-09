@@ -17,7 +17,7 @@
     "biome:check": "biome check --fix && biome format --write",
     "test": "vitest",
     "prepare": "husky",
-    "auth:db:generate": "LOCAL_DB_PATH=$(find .wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) dotenvx run -f .dev.vars -- npx @better-auth/cli generate --output=\"database/auth-schema.ts\" --y && biome format database/auth-schema.ts --write"
+    "auth:db:generate": "LOCAL_DB_PATH=$(find .wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) npx env-cmd -f .dev.vars -- npx @better-auth/cli generate --output=\"database/auth-schema.ts\" --y && biome format database/auth-schema.ts --write"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
@@ -42,6 +42,7 @@
     "@types/node": "^20",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
+    "better-sqlite3": "^12.2.0",
     "dotenv-cli": "^7.4.3",
     "drizzle-kit": "~0.28.1",
     "husky": "^9.1.7",
