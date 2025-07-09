@@ -12,6 +12,7 @@
 
 # Environment variables
 .env
+.dev.vars
 
 # Logs
 logs

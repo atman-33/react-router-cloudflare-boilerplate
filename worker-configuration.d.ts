@@ -4,6 +4,10 @@
 declare namespace Cloudflare {
 	interface Env {
 		VALUE_FROM_CLOUDFLARE: "Hello from Cloudflare";
+        BETTER_AUTH_SECRET: string;
+        BETTER_AUTH_URL: string;
+        OAUTH_GITHUB_CLIENT_ID: string;
+        OAUTH_GITHUB_CLIENT_SECRET: string;
 		DB: D1Database;
 	}
 }

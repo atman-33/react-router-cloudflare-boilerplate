@@ -16,15 +16,18 @@
     "check": "npm run typecheck && npm run biome:check",
     "biome:check": "biome check --fix && biome format --write",
     "test": "vitest",
-    "prepare": "husky"
+    "prepare": "husky",
+    "auth:db:generate": "LOCAL_DB_PATH=$(find .wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) dotenvx run -f .dev.vars -- npx @better-auth/cli generate --output=\"database/auth-schema.ts\" --y && biome format database/auth-schema.ts --write"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
     "@react-router/fs-routes": "^7.6.3",
+    "better-auth": "^1.2.12",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "drizzle-orm": "~0.36.3",
     "isbot": "^5.1.27",
+    "kysely-d1": "^0.4.0",
     "lucide-react": "^0.525.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
