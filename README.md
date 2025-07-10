@@ -1,20 +1,23 @@
-# Welcome to React Router!
+# React Router + Cloudflare Boilerplate
 
-A modern, production-ready template for building full-stack React applications using React Router.
+A modern, production-ready template for building full-stack React applications using React Router, Cloudflare (Pages, Workers, D1), Drizzle ORM, and `better-auth`.
 
 ## Features
 
+- **Framework**: [React Router v7](https://reactrouter.com/)
+- **Platform**: [Cloudflare](https://www.cloudflare.com/) (Pages, Workers, D1)
+- **ORM**: [Drizzle ORM](https://orm.drizzle.team/)
+- **Authentication**: [better-auth](https://github.com/drwpow/better-auth)
+- **UI/Styling**: [Tailwind CSS](https://tailwindcss.com/), [shadcn/ui](https://ui.shadcn.com/), [Lucide Icons](https://lucide.dev/)
+- **Tooling**: [Vite](https://vitejs.dev/), [Biome](https://biomejs.dev/), [TypeScript](https://www.typescriptlang.org/), [Vitest](https://vitest.dev/)
 - 🚀 Server-side rendering
 - ⚡️ Hot Module Replacement (HMR)
 - 📦 Asset bundling and optimization
 - 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
 
 ## Getting Started
 
-### Installation
+### 1. Installation
 
 Install the dependencies:
 
@@ -22,13 +25,30 @@ Install the dependencies:
 npm install
 ```
 
-### Development
+### 2. Environment Variables
 
-Run an initial database migration:
+Copy the example environment file to both `.dev.vars` (for local development with Wrangler) and `.env` (for other scripts like Drizzle Kit).
 
 ```bash
+cp .env.example .dev.vars
+cp .env.example .env
+```
+
+Be sure to fill in the required variables in both files.
+
+### 3. Database Setup
+
+Run the initial database migrations for your local D1 database.
+
+```bash
+# Generate the auth schema
+npm run auth:db:generate
+
+# Migrate the main schema
 npm run db:migrate
 ```
+
+### 4. Start Development
 
 Start the development server with HMR:
 
@@ -38,54 +58,82 @@ npm run dev
 
 Your application will be available at `http://localhost:5173`.
 
-## Building for Production
+## Available Scripts
 
-Create a production build:
-
-```bash
-npm run build
-```
+- `dev`: Starts the development server with HMR.
+- `build`: Creates a production-ready build of your application.
+- `preview`: Serves the production build locally for previewing.
+- `deploy`: Builds and deploys your application to Cloudflare.
+- `db:generate`: Generates Drizzle ORM migration files based on schema changes.
+- `db:migrate`: Applies pending migrations to the local D1 database.
+- `db:migrate-production`: Applies pending migrations to the production D1 database.
+- `auth:db:generate`: Generates the database schema for `better-auth`.
+- `check`: Runs type checking and Biome for code quality.
+- `biome:check`: Lints and formats the codebase using Biome.
+- `test`: Runs tests using Vitest.
 
 ## Deployment
 
 Deployment is done using the Wrangler CLI.
 
-First, you need to create a d1 database in Cloudflare.
+### 1. Create Production D1 Database
 
-```sh
-npx wrangler d1 create <name-of-your-database>
+First, create a D1 database in your Cloudflare account.
+
+```bash
+npx wrangler d1 create <your-database-name>
 ```
 
-Be sure to update the `wrangler.toml` file with the correct database name and id.
+### 2. Configure Wrangler
 
-You will also need to [update the `drizzle.config.ts` file](https://orm.drizzle.team/docs/guides/d1-http-with-drizzle-kit), and then run the production migration:
+Update your `wrangler.jsonc` file with the `database_name` and `database_id` from the previous step.
 
-```sh
+```jsonc
+// wrangler.jsonc
+"d1_databases": [
+  {
+    "binding": "DB",
+    "database_name": "<your-database-name>",
+    "database_id": "<your-database-id>"
+  }
+]
+```
+
+### 3. Run Production Migration
+
+Update your `drizzle.config.ts` to point to your production database, and then run the production migration command:
+
+```bash
 npm run db:migrate-production
 ```
 
-To build and deploy directly to production:
+### 4. Deploy to Cloudflare
 
-```sh
+To build and deploy your application to production:
+
+```bash
 npm run deploy
 ```
 
-To deploy a preview URL:
+## Authentication
 
-```sh
-npx wrangler versions upload
-```
+This boilerplate uses [`better-auth`](https://github.com/drwpow/better-auth) for authentication, pre-configured for GitHub. Key files include:
 
-You can then promote a version to production after verification or roll it out progressively.
-
-```sh
-npx wrangler versions deploy
-```
+- `auth.ts`: Main `better-auth` server configuration.
+- `app/lib/auth/auth.server.ts`: Server-side authentication utilities.
+- `app/lib/auth/auth-client.ts`: Client-side authentication utilities.
+- `app/routes/api.auth.$`: Route for handling authentication callbacks.
 
 ## Styling
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+This template comes with [Tailwind CSS](https://tailwindcss.com/) and [shadcn/ui](https://ui.shadcn.com/) for a modern, component-based styling experience.
+
+To add new `shadcn/ui` components, you can use their CLI:
+
+```bash
+npx shadcn-ui@latest add <component-name>
+```
 
 ---
 
-Built with ❤️ using React Router.
+Built with ❤️ using React Router and Cloudflare.
