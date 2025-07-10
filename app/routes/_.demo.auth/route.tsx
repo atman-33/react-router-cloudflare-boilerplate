@@ -31,6 +31,12 @@ export default function DemoAuth({ loaderData }: Route.ComponentProps) {
     });
   };
 
+  const signInGoogle = async () => {
+    await signIn.social({
+      provider: "google",
+    });
+  };
+
   return (
     <div className="mx-auto max-w-sm p-4">
       <h1 className="text-xl">
@@ -41,12 +47,18 @@ export default function DemoAuth({ loaderData }: Route.ComponentProps) {
           {JSON.stringify(loaderData.user)}
         </div>
       ) : (
-        <div>
+        <div className="flex gap-4">
           <button
             onClick={() => signInGitHub()}
             className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400"
           >
             Login with GitHub
+          </button>
+          <button
+            onClick={() => signInGoogle()}
+            className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400"
+          >
+            Login with Google
           </button>
         </div>
       )}

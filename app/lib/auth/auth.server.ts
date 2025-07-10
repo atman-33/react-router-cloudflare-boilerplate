@@ -12,6 +12,8 @@ export function createBetterAuth(
     BETTER_AUTH_SECRET: string;
     OAUTH_GITHUB_CLIENT_ID: string;
     OAUTH_GITHUB_CLIENT_SECRET: string;
+    OAUTH_GOOGLE_CLIENT_ID: string;
+    OAUTH_GOOGLE_CLIENT_SECRET: string;
   },
 ) {
   if (!authInstance) {
@@ -25,6 +27,10 @@ export function createBetterAuth(
         github: {
           clientId: env.OAUTH_GITHUB_CLIENT_ID,
           clientSecret: env.OAUTH_GITHUB_CLIENT_SECRET,
+        },
+        google: {
+          clientId: env.OAUTH_GOOGLE_CLIENT_ID,
+          clientSecret: env.OAUTH_GOOGLE_CLIENT_SECRET,
         },
       },
     });
