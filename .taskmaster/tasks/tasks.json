@@ -1,0 +1,147 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Project Initialization & Core Setup",
+        "description": "Set up the foundational project structure, including React, React Router v7 (file-based), shadcn/ui, Zustand for state management, and Vitest for testing.",
+        "details": "Initialize a new React project, configure file-based routing, install and configure shadcn/ui, set up Zustand store, and integrate Vitest for testing.",
+        "testStrategy": "Verify successful installation and basic setup of all core libraries. Ensure a minimal React component renders correctly.",
+        "priority": "high",
+        "dependencies": [],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 2,
+        "title": "Database & ORM Setup",
+        "description": "Configure Cloudflare D1 as the database and Drizzle as the ORM. Define the initial schema for manga logs.",
+        "details": "Set up D1 bindings, configure Drizzle for schema definition and migrations. Define `manga_logs` table with `title`, `score`, `status`, `volume_progress`, `chapter_progress`, `note`, and `user_id` fields.",
+        "testStrategy": "Verify D1 connection. Write a simple Drizzle migration to create the `manga_logs` table and confirm its existence.",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 3,
+        "title": "User Authentication Implementation",
+        "description": "Implement user login/logout functionality using Google OAuth via the Better Auth library.",
+        "details": "Integrate Better Auth for Google OAuth. Handle successful login to associate user with their manga logs. Implement logout functionality and session management.",
+        "testStrategy": "Test Google OAuth flow: successful login, user data retrieval, and logout. Verify session persistence.",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 4,
+        "title": "Header & Responsive Layout Development",
+        "description": "Develop the application header and ensure the overall UI is responsive across desktop and mobile.",
+        "details": "Implement header with app logo/title, dynamic login/logout buttons, and display user info (e.g., avatar, name) when authenticated. Use shadcn/ui components and CSS for responsiveness.",
+        "testStrategy": "Manually test header display on various screen sizes (desktop, tablet, mobile). Verify button states change based on authentication status.",
+        "priority": "high",
+        "dependencies": [
+          1,
+          3
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 5,
+        "title": "Manga Log Form (Add/Edit) UI",
+        "description": "Create the user interface for adding new manga logs and editing existing ones, including all required fields and basic client-side validation.",
+        "details": "Design a modal or dedicated page with a form for Title (text, required), Score (1.0-5.0, optional), Status (boolean), Volume Progress (integer, optional), Chapter Progress (integer, optional), Note (text, optional). Include Save/Cancel buttons and implement client-side validation for required fields.",
+        "testStrategy": "Test form rendering, input types, and client-side validation messages for required fields. Verify Save/Cancel button functionality.",
+        "priority": "medium",
+        "dependencies": [
+          1,
+          4
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 6,
+        "title": "Manga Log Form (Add/Edit) Backend Integration",
+        "description": "Implement API endpoints and Drizzle ORM operations for creating and updating manga log entries in the Cloudflare D1 database.",
+        "details": "Develop backend logic to receive form data, validate it, and use Drizzle to insert new records or update existing ones. Ensure logs are associated with the authenticated user's ID.",
+        "testStrategy": "Write API tests to verify successful creation and update of manga logs. Test edge cases like invalid data and unauthorized access.",
+        "priority": "medium",
+        "dependencies": [
+          2,
+          5
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 7,
+        "title": "Manga List Display",
+        "description": "Fetch and display the authenticated user's manga logs on the main 'Top Page'.",
+        "details": "Implement an API endpoint to retrieve all manga logs for the current authenticated user. Render them as a list on the main page, showing key information for each entry.",
+        "testStrategy": "Verify that only the authenticated user's manga logs are displayed. Test with multiple users and no logs.",
+        "priority": "medium",
+        "dependencies": [
+          2,
+          3,
+          6
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 8,
+        "title": "Manga List Search & Sort",
+        "description": "Add search functionality to filter the manga list by title and implement sorting options.",
+        "details": "Implement a search bar to filter the displayed list by manga title (case-insensitive). Add controls for sorting by 'Last updated date' (default), 'Score' (highest to lowest), and 'Title' (alphabetical A-Z).",
+        "testStrategy": "Test search functionality with various keywords. Verify correct sorting order for all specified criteria, including default.",
+        "priority": "medium",
+        "dependencies": [
+          7
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 9,
+        "title": "Manga Log Delete Functionality",
+        "description": "Implement the ability for users to delete their manga log entries.",
+        "details": "Add a delete button or option for each manga log item in the list. Implement backend API endpoint and Drizzle operation to remove the selected log from the database.",
+        "testStrategy": "Test deleting a manga log and verify it's removed from the list and database. Ensure a user cannot delete another user's log.",
+        "priority": "medium",
+        "dependencies": [
+          7
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 10,
+        "title": "End-to-End Testing & Refinement",
+        "description": "Write comprehensive tests for core functionalities and perform final UI/UX refinements.",
+        "details": "Use Vitest to write unit and integration tests for authentication flow, manga CRUD operations (create, read, update, delete), search, and sort functionalities. Conduct a thorough UI/UX review and make necessary adjustments for polish and usability.",
+        "testStrategy": "Execute all automated tests. Perform manual end-to-end testing of all user flows. Gather feedback for UI/UX improvements.",
+        "priority": "low",
+        "dependencies": [
+          3,
+          6,
+          8,
+          9
+        ],
+        "status": "pending",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "created": "2025-07-13T13:14:37.414Z",
+      "updated": "2025-07-13T13:14:37.415Z",
+      "description": "Tasks for master context"
+    }
+  }
+}

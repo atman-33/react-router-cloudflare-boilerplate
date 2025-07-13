@@ -1,0 +1,57 @@
+# Product Requirements Document: manga-log
+
+## 1. Overview
+- **Application Name:** manga-log
+- **Objective:** A web application for users to log and track manga they have read.
+- **Target Audience:** English-speaking users. All UI and text will be in English.
+
+## 2. Core Features
+
+### 2.1. User Authentication
+- Users must be able to log in to the application.
+- Authentication will be handled by Google OAuth, using the Better Auth library.
+
+### 2.2. Manga Logging
+- Authenticated users can add, edit, and delete their manga logs.
+- Each manga log must contain the following information:
+    - **Title:** The title of the manga (text, required).
+    - **Score:** A user-assigned score from 1.0 to 5.0 (numeric, optional).
+    - **Status:** A flag indicating if the manga series is completed or still ongoing (boolean).
+    - **Progress (Volume):** The last volume number the user has read (integer, optional).
+    - **Progress (Chapter):** The last chapter number the user has read (integer, optional).
+    - **Note:** A free-form text area for personal notes (text, optional).
+- Each manga log must be associated with the user who created it.
+
+## 3. Screen Layout & UI
+
+### 3.1. General
+- The application must have a responsive design, ensuring it is usable on both mobile and desktop screens.
+- The UI will be built using shadcn/ui components.
+
+### 3.2. Header
+- Contains the application logo and title.
+- Displays a "Login" button for unauthenticated users.
+- For authenticated users, it should show user information and a "Logout" option.
+
+### 3.3. Top Page (Manga List View)
+- This is the main page after login.
+- It displays a list of all manga logged by the user.
+- **Search:** A search bar to filter the list by manga title.
+- **Sorting:** Users can sort the list by:
+    - Last updated date (default).
+    - Score (highest to lowest).
+    - Title (alphabetical A-Z).
+
+### 3.4. Add/Edit Manga
+- This functionality should be presented in a modal or a dedicated page.
+- It will contain a form with fields for all the data points listed in section 2.2.
+- The form should have "Save" and "Cancel" buttons.
+
+## 4. Technical Stack
+- **Routing:** React Router v7 (with file-based routing).
+- **UI Components:** shadcn/ui.
+- **State Management:** Zustand.
+- **Database:** Cloudflare D1.
+- **Authentication:** Better Auth.
+- **Testing:** Vitest.
+- **ORM:** Drizzle.
