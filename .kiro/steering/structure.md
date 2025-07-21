@@ -47,7 +47,7 @@ app/
 - `~/database/*` - Maps to `database/` directory
 
 ## File Naming Conventions
-- React components: PascalCase (e.g., `Button.tsx`)
+- React components: kebab-case (e.g., `button.tsx`)
 - Utility files: kebab-case (e.g., `auth-client.ts`)
 - Route files: Follow React Router v7 conventions
 - Database files: kebab-case (e.g., `auth-schema.ts`)

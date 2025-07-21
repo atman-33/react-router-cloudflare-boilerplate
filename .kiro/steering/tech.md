@@ -1,66 +1,74 @@
-# Technology Stack
+---
+inclusion: always
+---
 
-## Core Framework & Runtime
+# Technology Stack & Development Guide
+
+## Core Stack
 - **React Router v7** - Full-stack React framework with SSR
-- **Cloudflare Workers** - Edge runtime environment
-- **Vite** - Build tool and development server
-
-## Database & ORM
+- **Cloudflare Workers** - Edge runtime environment  
 - **Cloudflare D1** - SQLite database at the edge
-- **Drizzle ORM** - Type-safe database toolkit
-- **Kysely** - SQL query builder (used for better-auth integration)
+- **Drizzle ORM** - Type-safe database operations
+- **better-auth** - Authentication with Google OAuth
+- **Conform + Zod** - Form validation and handling
+- **react-call** - Programmatic modal/dialog management
+- **Tailwind CSS v4** + **shadcn/ui** - Styling and components
+- **TypeScript** + **Biome** - Type safety and code quality
 
-## Authentication
-- **better-auth** - Authentication library with OAuth support
-- **GitHub/Google OAuth** - Social login providers
-
-## Styling & UI
-- **Tailwind CSS v4** - Utility-first CSS framework
-- **shadcn/ui** - Component library built on Radix UI
-- **Lucide React** - Icon library
-
-## Code Quality & Tooling
-- **TypeScript** - Static type checking
-- **Biome** - Linting and formatting (replaces ESLint + Prettier)
-- **Vitest** - Testing framework
-- **Husky** - Git hooks for pre-commit checks
-
-## Common Commands
-
-### Development
-```bash
-npm run dev          # Start development server with HMR
-npm run preview      # Preview production build locally
-```
-
-### Building & Deployment
-```bash
-npm run build        # Build for production
-npm run deploy       # Build and deploy to Cloudflare
-```
+## Development Patterns
 
 ### Database Operations
+- Use Drizzle ORM for all database queries
+- Access D1 via `context.cloudflare.env.DB`
+- Generate migrations with `npm run db:generate`
+- Apply migrations: `npm run db:migrate` (local) or `npm run db:migrate-production`
+
+### Authentication Requirements
+- **Google OAuth only** - no other providers
+- All app features require authentication
+- Use `requireAuth()` in loaders for protected routes
+- Access user via `context.cloudflare.env` bindings
+
+### React Router v7 Conventions
+- Route files: `route.tsx` with typed `loader`/`action` functions
+- Use `useLoaderData()` and `useActionData()` hooks
+- File-based routing in `app/routes/`
+- Underscore prefixes for route groups (`_app`, `_landing`)
+
+### Form Handling (Conform + Zod)
+- Use Conform for form state management and validation
+- Define Zod schemas for type-safe validation
+- Server-side validation with `parseWithZod()` in actions
+- Client-side validation with `useForm()` hook
+- Custom `ConformInput` component for consistent error display
+- Pattern: Create custom hooks like `useSampleForm()` for reusable forms
+
+### Modal Management (react-call)
+- Use `createCallable()` for programmatic modals/dialogs
+- Wrap shadcn/ui components for consistent styling
+- Add `<ComponentName>.Root />` to root layout for rendering
+- Call modals with `await Component.call(props)` for async responses
+- Return typed responses from modal interactions
+
+### Code Standards
+- Use Biome for all formatting/linting (`npm run biome:check`)
+- TypeScript strict mode enabled
+- Functional components with hooks
+- kebab-case file names, PascalCase components
+- English comments and documentation
+
+## Essential Commands
 ```bash
-npm run db:generate           # Generate Drizzle migration files
-npm run db:migrate           # Apply migrations to local D1
-npm run db:migrate-production # Apply migrations to production D1
-npm run auth:db:generate     # Generate better-auth schema
+npm run dev              # Development server
+npm run build            # Production build
+npm run deploy           # Deploy to Cloudflare
+npm run db:generate      # Create migrations
+npm run db:migrate       # Apply local migrations
+npm run biome:check      # Format and lint
+npm run typecheck        # Type checking
 ```
 
-### Code Quality
-```bash
-npm run check           # Run type checking and Biome
-npm run biome:check     # Lint and format code
-npm run typecheck       # Type check only
-npm run test           # Run tests with Vitest
-```
-
-### Cloudflare Utilities
-```bash
-npm run cf-typegen     # Generate Cloudflare Worker types
-```
-
-## Environment Setup
-- `.dev.vars` - Local development environment variables (for Wrangler)
-- `.env` - Environment variables for other scripts (Drizzle Kit)
-- Both files should contain the same variables but are used by different tools
+## Environment Files
+- `.dev.vars` - Wrangler local development
+- `.env` - Drizzle Kit and other tools
+- Both should contain identical variables
