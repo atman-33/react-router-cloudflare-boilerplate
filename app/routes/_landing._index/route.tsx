@@ -2,6 +2,35 @@ import { Button } from "~/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription } from "~/components/ui/card";
 import { Badge } from "~/components/ui/badge";
 import { CheckCircle, Database, Globe, Lock, Zap, Code } from "lucide-react";
+import { siteConfig } from "~/config/site-config";
+
+export function meta() {
+  return [
+    { title: `${siteConfig.name} - Modern Full-Stack React Boilerplate` },
+    { name: "description", content: siteConfig.description },
+    { name: "keywords", content: siteConfig.keywords.join(", ") },
+    { name: "author", content: siteConfig.author },
+
+    // Open Graph
+    { property: "og:title", content: `${siteConfig.name} - Modern Full-Stack React Boilerplate` },
+    { property: "og:description", content: siteConfig.description },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: siteConfig.appUrl },
+    { property: "og:image", content: `${siteConfig.appUrl}${siteConfig.ogpImage}` },
+    { property: "og:site_name", content: siteConfig.name },
+
+    // Twitter Card
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: `${siteConfig.name} - Modern Full-Stack React Boilerplate` },
+    { name: "twitter:description", content: siteConfig.description },
+    { name: "twitter:image", content: `${siteConfig.appUrl}${siteConfig.ogpImage}` },
+
+    // Additional SEO
+    { name: "robots", content: "index, follow" },
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
+    { httpEquiv: "Content-Type", content: "text/html; charset=utf-8" },
+  ];
+}
 
 const LandingIndex = () => {
   return (
