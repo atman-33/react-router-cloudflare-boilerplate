@@ -12,6 +12,7 @@ import "./app.css";
 import { ReactCallRoots } from './components/react-call';
 import { AdScripts } from './components/ad-scripts';
 import { CustomToaster } from './components/custom-sonner';
+import { ThemeProvider } from './components/theme-provider';
 
 export const links: Route.LinksFunction = () => [
 	{ rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -24,6 +25,25 @@ export const links: Route.LinksFunction = () => [
 		rel: "stylesheet",
 		href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
 	},
+	{
+		rel: 'apple-touch-icon',
+		sizes: '180x180',
+		href: '/favicons/apple-touch-icon.png',
+	},
+	{
+		rel: 'icon',
+		type: 'image/png',
+		sizes: '32x32',
+		href: '/favicons/favicon-32x32.png',
+	},
+	{
+		rel: 'icon',
+		type: 'image/png',
+		sizes: '16x16',
+		href: '/favicons/favicon-16x16.png',
+	},
+	{ rel: 'manifest', href: '/site.webmanifest' },
+	{ rel: 'icon', href: '/favicon.ico', type: 'image/x-icon' },
 ];
 
 export function Layout({ children }: { children: React.ReactNode; }) {
@@ -37,7 +57,15 @@ export function Layout({ children }: { children: React.ReactNode; }) {
 				<Links />
 			</head>
 			<body>
-				{children}
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+					storageKey="acme-theme"
+				>
+					{children}
+				</ThemeProvider>
 				<ScrollRestoration />
 				<Scripts />
 			</body>
