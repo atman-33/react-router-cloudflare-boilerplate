@@ -20,7 +20,11 @@
     "auth:db:generate": "LOCAL_DB_PATH=$(find .wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) npx env-cmd -f .dev.vars -- npx @better-auth/cli generate --output=\"database/auth-schema.ts\" --y && biome format database/auth-schema.ts --write"
   },
   "dependencies": {
+    "@conform-to/react": "^1.8.2",
+    "@conform-to/zod": "^1.8.2",
+    "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-switch": "^1.2.5",
     "@react-router/fs-routes": "^7.6.3",
     "better-auth": "^1.2.12",
     "class-variance-authority": "^0.7.1",
@@ -32,7 +36,8 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router": "^7.5.3",
-    "tailwind-merge": "^3.3.1"
+    "tailwind-merge": "^3.3.1",
+    "zod": "^4.0.5"
   },
   "devDependencies": {
     "@biomejs/biome": "2.0.6",
