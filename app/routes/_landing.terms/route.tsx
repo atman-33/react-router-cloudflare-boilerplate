@@ -1,137 +1,198 @@
-import type { Route } from './+types/route';
+import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 
-export function meta({ }: Route.MetaArgs) {
+export function meta() {
   return [
-    { title: 'Terms of Service - MangaLog' },
-    { name: 'description', content: 'Terms of service for MangaLog manga tracking application' },
+    { title: "Terms of Service - React Router Boilerplate" },
+    { name: "description", content: "Terms of service for React Router Boilerplate application." },
   ];
 }
 
-export default function TermsPage() {
+const TermsPage = () => {
   return (
-    <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Terms of Service</h1>
-
-      <div className="prose prose-gray dark:prose-invert max-w-none">
-        <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
-          Last updated: January 19, 2025
-        </p>
-
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Acceptance of Terms</h2>
+    <div className="min-h-screen py-12 px-4">
+      <div className="container mx-auto max-w-4xl">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold mb-4">Terms of Service</h1>
           <p className="text-gray-600 dark:text-gray-400">
-            By accessing and using MangaLog, you accept and agree to be bound by the terms and
-            provision of this agreement. If you do not agree to abide by the above, please do not use this service.
+            Last updated: {new Date().toLocaleDateString()}
           </p>
-        </section>
+        </div>
 
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Description of Service</h2>
-          <p className="text-gray-600 dark:text-gray-400">
-            MangaLog is a personal manga tracking application that allows users to log and track
-            their manga reading progress. The service is provided free of charge for personal, non-commercial use.
-          </p>
-        </section>
+        <div className="space-y-8">
+          <Card>
+            <CardHeader>
+              <CardTitle>Acceptance of Terms</CardTitle>
+            </CardHeader>
+            <CardContent className="prose dark:prose-invert max-w-none">
+              <p>
+                By accessing and using this React Router Boilerplate application ("Service"),
+                you accept and agree to be bound by the terms and provision of this agreement.
+              </p>
+              <p>
+                If you do not agree to abide by the above, please do not use this service.
+              </p>
+            </CardContent>
+          </Card>
 
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">User Accounts</h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
-            To use MangaLog, you must:
-          </p>
-          <ul className="list-disc pl-6 text-gray-600 dark:text-gray-400 space-y-2">
-            <li>Have a valid Google account for authentication</li>
-            <li>Provide accurate and complete information</li>
-            <li>Maintain the security of your account</li>
-            <li>Be responsible for all activities under your account</li>
-          </ul>
-        </section>
+          <Card>
+            <CardHeader>
+              <CardTitle>Description of Service</CardTitle>
+            </CardHeader>
+            <CardContent className="prose dark:prose-invert max-w-none">
+              <p>
+                This application is a boilerplate template designed to help developers build
+                modern React applications with the following features:
+              </p>
+              <ul>
+                <li>React Router v7 with server-side rendering</li>
+                <li>Cloudflare Workers and D1 database integration</li>
+                <li>Authentication via Google OAuth</li>
+                <li>Modern development tooling and best practices</li>
+              </ul>
+              <p>
+                The Service is provided "as is" and is intended for development and educational purposes.
+              </p>
+            </CardContent>
+          </Card>
 
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Acceptable Use</h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
-            You agree to use MangaLog only for lawful purposes and in accordance with these terms. You agree not to:
-          </p>
-          <ul className="list-disc pl-6 text-gray-600 dark:text-gray-400 space-y-2">
-            <li>Use the service for any illegal or unauthorized purpose</li>
-            <li>Attempt to gain unauthorized access to the service or other users' accounts</li>
-            <li>Upload or transmit malicious code or harmful content</li>
-            <li>Interfere with or disrupt the service or servers</li>
-            <li>Use automated tools to access the service without permission</li>
-          </ul>
-        </section>
+          <Card>
+            <CardHeader>
+              <CardTitle>User Accounts</CardTitle>
+            </CardHeader>
+            <CardContent className="prose dark:prose-invert max-w-none">
+              <p>
+                To access certain features of the Service, you may be required to create an account:
+              </p>
+              <ul>
+                <li>You must provide accurate and complete information when creating an account</li>
+                <li>You are responsible for maintaining the security of your account</li>
+                <li>You must notify us immediately of any unauthorized use of your account</li>
+                <li>We reserve the right to suspend or terminate accounts that violate these terms</li>
+              </ul>
+            </CardContent>
+          </Card>
 
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">User Content</h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
-            You retain ownership of the content you create on MangaLog (manga logs, notes, etc.). By using the service, you grant us:
-          </p>
-          <ul className="list-disc pl-6 text-gray-600 dark:text-gray-400 space-y-2">
-            <li>The right to store and display your content as part of the service</li>
-            <li>The right to backup and restore your data</li>
-            <li>The right to process your data as described in our Privacy Policy</li>
-          </ul>
-        </section>
+          <Card>
+            <CardHeader>
+              <CardTitle>Acceptable Use</CardTitle>
+            </CardHeader>
+            <CardContent className="prose dark:prose-invert max-w-none">
+              <p>You agree not to use the Service to:</p>
+              <ul>
+                <li>Violate any applicable laws or regulations</li>
+                <li>Infringe on the rights of others</li>
+                <li>Transmit harmful, offensive, or inappropriate content</li>
+                <li>Attempt to gain unauthorized access to our systems</li>
+                <li>Interfere with or disrupt the Service</li>
+                <li>Use the Service for any commercial purpose without permission</li>
+              </ul>
+            </CardContent>
+          </Card>
 
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Service Availability</h2>
-          <p className="text-gray-600 dark:text-gray-400">
-            We strive to maintain high availability of MangaLog, but we do not guarantee uninterrupted access.
-            The service may be temporarily unavailable due to maintenance, updates, or technical issues.
-            We are not liable for any inconvenience or loss resulting from service interruptions.
-          </p>
-        </section>
+          <Card>
+            <CardHeader>
+              <CardTitle>Intellectual Property</CardTitle>
+            </CardHeader>
+            <CardContent className="prose dark:prose-invert max-w-none">
+              <p>
+                The Service and its original content, features, and functionality are and will remain
+                the exclusive property of the service provider and its licensors.
+              </p>
+              <p>
+                The Service is protected by copyright, trademark, and other laws. You may not reproduce,
+                distribute, or create derivative works without explicit permission.
+              </p>
+            </CardContent>
+          </Card>
 
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Intellectual Property</h2>
-          <p className="text-gray-600 dark:text-gray-400">
-            The MangaLog application, including its design, code, and features, is owned by us and protected
-            by intellectual property laws. You may not copy, modify, distribute, or create derivative works
-            based on our service without explicit permission.
-          </p>
-        </section>
+          <Card>
+            <CardHeader>
+              <CardTitle>Privacy</CardTitle>
+            </CardHeader>
+            <CardContent className="prose dark:prose-invert max-w-none">
+              <p>
+                Your privacy is important to us. Please review our Privacy Policy, which also governs
+                your use of the Service, to understand our practices.
+              </p>
+              <p>
+                By using the Service, you consent to the collection and use of information as outlined
+                in our Privacy Policy.
+              </p>
+            </CardContent>
+          </Card>
 
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Disclaimer of Warranties</h2>
-          <p className="text-gray-600 dark:text-gray-400">
-            MangaLog is provided "as is" without any warranties, express or implied. We do not warrant that
-            the service will be error-free, secure, or continuously available. Use of the service is at your own risk.
-          </p>
-        </section>
+          <Card>
+            <CardHeader>
+              <CardTitle>Disclaimer of Warranties</CardTitle>
+            </CardHeader>
+            <CardContent className="prose dark:prose-invert max-w-none">
+              <p>
+                The Service is provided on an "AS IS" and "AS AVAILABLE" basis. We make no representations
+                or warranties of any kind, express or implied, as to the operation of the Service or the
+                information, content, materials, or products included on the Service.
+              </p>
+              <p>
+                You expressly agree that your use of the Service is at your sole risk.
+              </p>
+            </CardContent>
+          </Card>
 
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Limitation of Liability</h2>
-          <p className="text-gray-600 dark:text-gray-400">
-            We shall not be liable for any indirect, incidental, special, or consequential damages arising
-            from your use of MangaLog, including but not limited to loss of data, profits, or business interruption.
-          </p>
-        </section>
+          <Card>
+            <CardHeader>
+              <CardTitle>Limitation of Liability</CardTitle>
+            </CardHeader>
+            <CardContent className="prose dark:prose-invert max-w-none">
+              <p>
+                In no event shall the service provider be liable for any indirect, incidental, special,
+                consequential, or punitive damages, including without limitation, loss of profits, data,
+                use, goodwill, or other intangible losses.
+              </p>
+            </CardContent>
+          </Card>
 
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Account Termination</h2>
-          <p className="text-gray-600 dark:text-gray-400">
-            You may delete your account at any time. We reserve the right to suspend or terminate accounts
-            that violate these terms or engage in harmful activities. Upon termination, your data will be
-            deleted in accordance with our Privacy Policy.
-          </p>
-        </section>
+          <Card>
+            <CardHeader>
+              <CardTitle>Termination</CardTitle>
+            </CardHeader>
+            <CardContent className="prose dark:prose-invert max-w-none">
+              <p>
+                We may terminate or suspend your account and bar access to the Service immediately,
+                without prior notice or liability, under our sole discretion, for any reason whatsoever
+                and without limitation, including but not limited to a breach of the Terms.
+              </p>
+            </CardContent>
+          </Card>
 
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Changes to Terms</h2>
-          <p className="text-gray-600 dark:text-gray-400">
-            We may update these terms from time to time. We will notify users of significant changes by
-            posting the updated terms on this page and updating the "Last updated" date. Continued use
-            of the service after changes constitutes acceptance of the new terms.
-          </p>
-        </section>
+          <Card>
+            <CardHeader>
+              <CardTitle>Changes to Terms</CardTitle>
+            </CardHeader>
+            <CardContent className="prose dark:prose-invert max-w-none">
+              <p>
+                We reserve the right, at our sole discretion, to modify or replace these Terms at any time.
+                If a revision is material, we will provide at least 30 days notice prior to any new terms taking effect.
+              </p>
+              <p>
+                What constitutes a material change will be determined at our sole discretion.
+              </p>
+            </CardContent>
+          </Card>
 
-        <section>
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Contact Information</h2>
-          <p className="text-gray-600 dark:text-gray-400">
-            If you have questions about these terms, please contact us through our GitHub repository
-            or the contact information provided on our website.
-          </p>
-        </section>
+          <Card>
+            <CardHeader>
+              <CardTitle>Contact Information</CardTitle>
+            </CardHeader>
+            <CardContent className="prose dark:prose-invert max-w-none">
+              <p>
+                If you have any questions about these Terms of Service, please contact us at:
+                <strong> legal@yourapp.com</strong>
+              </p>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
-}
+};
+
+export default TermsPage;

@@ -1,109 +1,137 @@
-import type { Route } from './+types/route';
+import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 
-export function meta({ }: Route.MetaArgs) {
+export function meta() {
   return [
-    { title: 'Privacy Policy - MangaLog' },
-    { name: 'description', content: 'Privacy policy for MangaLog manga tracking application' },
+    { title: "Privacy Policy - React Router Boilerplate" },
+    { name: "description", content: "Privacy policy for React Router Boilerplate application." },
   ];
 }
 
-export default function PrivacyPage() {
+const PrivacyPage = () => {
   return (
-    <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Privacy Policy</h1>
-
-      <div className="prose prose-gray dark:prose-invert max-w-none">
-        <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
-          Last updated: January 19, 2025
-        </p>
-
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Information We Collect</h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
-            When you use MangaLog, we collect the following information:
-          </p>
-          <ul className="list-disc pl-6 text-gray-600 dark:text-gray-400 space-y-2">
-            <li><strong>Google Account Information:</strong> When you sign in with Google, we collect your name, email address, and profile picture from your Google account.</li>
-            <li><strong>Manga Data:</strong> Information about the manga you track, including titles, scores, reading progress, completion status, and personal notes.</li>
-            <li><strong>Usage Data:</strong> Basic information about how you use the service, such as when you create or update manga entries.</li>
-          </ul>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">How We Use Your Information</h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
-            We use your information to:
-          </p>
-          <ul className="list-disc pl-6 text-gray-600 dark:text-gray-400 space-y-2">
-            <li>Provide and maintain your personal manga tracking service</li>
-            <li>Authenticate your account and ensure data security</li>
-            <li>Display your manga collection and reading progress</li>
-            <li>Improve our service and user experience</li>
-          </ul>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Data Storage and Security</h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
-            Your data is stored securely using Cloudflare's infrastructure:
-          </p>
-          <ul className="list-disc pl-6 text-gray-600 dark:text-gray-400 space-y-2">
-            <li>All data is stored in Cloudflare D1 databases with encryption at rest</li>
-            <li>Data transmission is protected using HTTPS encryption</li>
-            <li>Access to your data is restricted to your authenticated account only</li>
-            <li>We implement industry-standard security measures to protect your information</li>
-          </ul>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Data Sharing</h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
-            We do not sell, trade, or share your personal information with third parties, except:
-          </p>
-          <ul className="list-disc pl-6 text-gray-600 dark:text-gray-400 space-y-2">
-            <li>Google OAuth for authentication purposes</li>
-            <li>When required by law or to protect our rights</li>
-            <li>With your explicit consent</li>
-          </ul>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Your Rights</h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
-            You have the right to:
-          </p>
-          <ul className="list-disc pl-6 text-gray-600 dark:text-gray-400 space-y-2">
-            <li>Access and download your data</li>
-            <li>Update or correct your information</li>
-            <li>Delete your account and associated data</li>
-            <li>Withdraw consent for data processing</li>
-          </ul>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Data Retention</h2>
+    <div className="min-h-screen py-12 px-4">
+      <div className="container mx-auto max-w-4xl">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold mb-4">Privacy Policy</h1>
           <p className="text-gray-600 dark:text-gray-400">
-            We retain your data as long as your account is active. If you delete your account,
-            we will remove your personal data within 30 days, except where required by law to retain it longer.
+            Last updated: {new Date().toLocaleDateString()}
           </p>
-        </section>
+        </div>
 
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Changes to This Policy</h2>
-          <p className="text-gray-600 dark:text-gray-400">
-            We may update this privacy policy from time to time. We will notify you of any changes
-            by posting the new policy on this page and updating the "Last updated" date.
-          </p>
-        </section>
+        <div className="space-y-8">
+          <Card>
+            <CardHeader>
+              <CardTitle>Information We Collect</CardTitle>
+            </CardHeader>
+            <CardContent className="prose dark:prose-invert max-w-none">
+              <p>
+                When you use our application, we may collect the following information:
+              </p>
+              <ul>
+                <li><strong>Account Information:</strong> When you sign in with Google OAuth, we collect your name, email address, and profile picture.</li>
+                <li><strong>Usage Data:</strong> We may collect information about how you use our application, including pages visited and features used.</li>
+                <li><strong>Technical Data:</strong> We automatically collect certain technical information, including your IP address, browser type, and device information.</li>
+              </ul>
+            </CardContent>
+          </Card>
 
-        <section>
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Contact Us</h2>
-          <p className="text-gray-600 dark:text-gray-400">
-            If you have any questions about this privacy policy, please contact us through our
-            GitHub repository or the contact information provided on our website.
-          </p>
-        </section>
+          <Card>
+            <CardHeader>
+              <CardTitle>How We Use Your Information</CardTitle>
+            </CardHeader>
+            <CardContent className="prose dark:prose-invert max-w-none">
+              <p>We use the collected information for the following purposes:</p>
+              <ul>
+                <li>To provide and maintain our service</li>
+                <li>To authenticate and authorize your access</li>
+                <li>To improve our application and user experience</li>
+                <li>To communicate with you about service updates</li>
+                <li>To ensure the security and integrity of our service</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Data Storage and Security</CardTitle>
+            </CardHeader>
+            <CardContent className="prose dark:prose-invert max-w-none">
+              <p>
+                Your data is stored securely using Cloudflare's infrastructure:
+              </p>
+              <ul>
+                <li>All data is encrypted in transit and at rest</li>
+                <li>We use Cloudflare D1 database with built-in security features</li>
+                <li>Access to your data is strictly controlled and monitored</li>
+                <li>We implement industry-standard security practices</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Third-Party Services</CardTitle>
+            </CardHeader>
+            <CardContent className="prose dark:prose-invert max-w-none">
+              <p>Our application integrates with the following third-party services:</p>
+              <ul>
+                <li><strong>Google OAuth:</strong> For authentication purposes</li>
+                <li><strong>Cloudflare:</strong> For hosting, database, and security services</li>
+              </ul>
+              <p>
+                These services have their own privacy policies, and we encourage you to review them.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Your Rights</CardTitle>
+            </CardHeader>
+            <CardContent className="prose dark:prose-invert max-w-none">
+              <p>You have the following rights regarding your personal data:</p>
+              <ul>
+                <li><strong>Access:</strong> You can request access to your personal data</li>
+                <li><strong>Correction:</strong> You can request correction of inaccurate data</li>
+                <li><strong>Deletion:</strong> You can request deletion of your personal data</li>
+                <li><strong>Portability:</strong> You can request a copy of your data in a portable format</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Contact Us</CardTitle>
+            </CardHeader>
+            <CardContent className="prose dark:prose-invert max-w-none">
+              <p>
+                If you have any questions about this Privacy Policy or our data practices,
+                please contact us at: <strong>privacy@yourapp.com</strong>
+              </p>
+              <p>
+                We will respond to your inquiry within 30 days.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Changes to This Policy</CardTitle>
+            </CardHeader>
+            <CardContent className="prose dark:prose-invert max-w-none">
+              <p>
+                We may update this Privacy Policy from time to time. We will notify you of any
+                changes by posting the new Privacy Policy on this page and updating the "Last updated" date.
+              </p>
+              <p>
+                You are advised to review this Privacy Policy periodically for any changes.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
-}
+};
+
+export default PrivacyPage;

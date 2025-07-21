@@ -17,7 +17,7 @@ export function Footer({ contactEmail }: FooterProps) {
           <div className="col-span-1 md:col-span-2">
             <Logo to="/" className="mb-4" />
             <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md">
-              The ultimate platform for tracking and managing your manga reading experience. Keep track of what you've read and discover your next favorite series.
+              A modern React Router + Cloudflare boilerplate with authentication, database, and server-side rendering. Perfect for building full-stack React applications.
             </p>
             <div className="flex items-center gap-4">
               <a
@@ -75,10 +75,10 @@ export function Footer({ contactEmail }: FooterProps) {
         <div className="border-t border-gray-200 dark:border-gray-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              © 2025 MangaLog. All rights reserved.
+              © 2025 React Router Boilerplate. All rights reserved.
             </p>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              Made with ❤️ for manga lovers
+              Built with React Router + Cloudflare
             </p>
           </div>
         </div>

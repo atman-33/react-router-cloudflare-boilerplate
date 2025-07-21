@@ -1,10 +1,11 @@
 export const siteConfig = {
-  name: "YourApp",
-  description: "Write your app description here.",
-  appUrl: "https://yourapp.com",
-  xUrl: "https://x.com/atman_33",
-  githubUrl: "https://github.com/atman-33",
-  keywords: [""],
-  author: "atman-33",
+  name: "React Router Boilerplate",
+  description:
+    "A modern React Router + Cloudflare boilerplate with authentication, database, and SSR.",
+  appUrl: "https://your-app.pages.dev",
+  xUrl: "https://x.com/your-handle",
+  githubUrl: "https://github.com/your-username/your-repo",
+  keywords: ["react", "cloudflare", "boilerplate", "typescript", "tailwind"],
+  author: "Your Name",
   ogpImage: "/ogp-image.png",
 };

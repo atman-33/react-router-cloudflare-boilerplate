@@ -26,8 +26,6 @@ const AppLayout = ({ loaderData }: Route.ComponentProps) => {
     <>
       <Header />
       <Outlet />
-      {/* Adsterra Native Banner */}
-      <div id="container-3ea914530b8e17b9f994b545c863dce4"></div>
       <Footer contactEmail={loaderData.contactEmail} />
     </>
   );

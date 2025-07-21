@@ -1,4 +1,4 @@
-import { Link, useNavigate, useRouteLoaderData } from "react-router";
+import { useNavigate, useRouteLoaderData } from "react-router";
 import { Button } from "~/components/ui/button";
 import { ThemeToggle } from "~/components/theme-toggle";
 import { Logo } from "~/components/logo";
