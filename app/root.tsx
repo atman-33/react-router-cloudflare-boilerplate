@@ -13,6 +13,30 @@ import { ReactCallRoots } from './components/react-call';
 import { AdScripts } from './components/ad-scripts';
 import { CustomToaster } from './components/custom-sonner';
 import { ThemeProvider } from './components/theme-provider';
+import { getAuth } from '~/lib/auth/auth.server';
+
+export const loader = async ({ request, context }: Route.LoaderArgs) => {
+	// Get base URL for auth client
+	const url = new URL(request.url);
+	const baseURL = `${url.protocol}//${url.host}`;
+
+	// Check if user is authenticated (optional, doesn't redirect)
+	const auth = getAuth(context);
+	let user = null;
+
+	try {
+		const session = await auth.api.getSession({ headers: request.headers });
+		user = session?.user || null;
+	} catch (error) {
+		// Ignore auth errors on root loader
+		console.log('Auth check failed in root loader:', error);
+	}
+
+	return {
+		baseURL,
+		user
+	};
+};
 
 export const links: Route.LinksFunction = () => [
 	{ rel: "preconnect", href: "https://fonts.googleapis.com" },

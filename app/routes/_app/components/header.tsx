@@ -7,11 +7,15 @@ import { getAuthClient } from "~/lib/auth/auth-client";
 
 export function Header() {
   const navigate = useNavigate();
-  const { user, baseURL } = useRouteLoaderData("root") as {
-    user: { name: string; image?: string | null; };
+  const rootData = useRouteLoaderData("root") as {
+    user: { name: string; image?: string | null; } | null;
     baseURL: string;
   };
-  const { signIn: signInAuth, signOut: signOutAuth } = getAuthClient({ baseURL });
+
+  const user = rootData?.user;
+  const { signIn: signInAuth, signOut: signOutAuth } = getAuthClient({
+    baseURL: rootData?.baseURL || ''
+  });
 
   const signInGoogle = async () => {
     await signInAuth.social({
