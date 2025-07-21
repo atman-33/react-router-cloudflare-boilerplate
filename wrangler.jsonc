@@ -8,13 +8,7 @@
   "main": "./workers/app.ts",
   "keep_vars": true,
   "vars": {
-    "VALUE_FROM_CLOUDFLARE": "Hello from Cloudflare",
-    "BETTER_AUTH_SECRET": "",
-    "BETTER_AUTH_URL": "http://localhost:5173",
-    "OAUTH_GITHUB_CLIENT_ID": "",
-    "OAUTH_GITHUB_CLIENT_SECRET": "",
-    "OAUTH_GOOGLE_CLIENT_ID": "",
-    "OAUTH_GOOGLE_CLIENT_SECRET": ""
+    "VALUE_FROM_CLOUDFLARE": "Hello from Cloudflare"
   },
   "d1_databases": [
     {
