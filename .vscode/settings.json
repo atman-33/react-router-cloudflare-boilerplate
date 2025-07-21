@@ -10,5 +10,9 @@
   ],
   "editor.quickSuggestions": {
     "strings": "on"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "never",
+    "source.organizeImports": "never"
   }
 }

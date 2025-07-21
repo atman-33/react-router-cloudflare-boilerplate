@@ -1,0 +1,21 @@
+{
+  "enabled": true,
+  "name": "Translate to English",
+  "description": "Automatically translates all code, comments, and text content to English when files are saved",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.md",
+      "**/*.json"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Please translate all content in the saved file to English, including:\n- All comments (both single-line // and multi-line /* */)\n- All string literals and text content\n- All variable names, function names, and identifiers (if they contain non-English characters)\n- All documentation and markdown content\n- All JSON values that contain text\n\nMaintain the original code structure and functionality. Only translate the text content to English while preserving all code logic, formatting, and syntax. If there are technical terms or proper nouns that should remain unchanged, keep them as is."
+  }
+}
