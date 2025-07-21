@@ -15,7 +15,7 @@ export function createBetterAuth(
     OAUTH_GOOGLE_CLIENT_ID: string;
     OAUTH_GOOGLE_CLIENT_SECRET: string;
   },
-) {
+): ReturnType<typeof betterAuth> {
   if (!authInstance) {
     authInstance = betterAuth({
       database,
@@ -39,7 +39,7 @@ export function createBetterAuth(
   return authInstance;
 }
 
-export function getAuth(ctx: AppLoadContext) {
+export function getAuth(ctx: AppLoadContext): ReturnType<typeof betterAuth> {
   if (!authInstance) {
     authInstance = createBetterAuth(
       {
