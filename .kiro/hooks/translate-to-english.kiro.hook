@@ -4,7 +4,7 @@
   "description": "Automatically translates all code, comments, and text content to English when files are saved",
   "version": "1",
   "when": {
-    "type": "fileEdited",
+    "type": "userTriggered",
     "patterns": [
       "**/*.ts",
       "**/*.tsx",
