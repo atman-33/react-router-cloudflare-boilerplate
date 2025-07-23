@@ -16,3 +16,9 @@ Serves as a starting template for developers building React applications that ne
 - Server-side rendering
 - Edge deployment capabilities
 - Modern development tooling
+
+## Language Requirements
+- **English Only**: This application targets English-speaking users
+- All UI text, labels, messages, and user-facing content must be in English
+- Source code comments and documentation should be written in English
+- Error messages and notifications must be in English
