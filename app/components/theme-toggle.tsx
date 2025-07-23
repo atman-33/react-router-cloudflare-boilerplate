@@ -7,7 +7,7 @@ export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // ハイドレーション対応 - SSR環境での初期表示問題を回避
+  // Hydration handling - Avoid initial rendering issues in SSR environment
   useEffect(() => {
     setMounted(true);
   }, []);
