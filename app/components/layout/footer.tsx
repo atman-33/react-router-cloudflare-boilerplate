@@ -1,50 +1,53 @@
 import { Mail } from "lucide-react";
 import { Link } from "react-router";
-import { GitHubIcon, XIcon } from "~/components/icons";
 import { Logo } from "~/components/logo";
 import { siteConfig } from "~/config/site-config";
+import { GitHubIcon } from "../icons/github-icon";
+import { XIcon } from "../icons/x-icon";
 
-interface FooterProps {
+type FooterProps = {
   contactEmail?: string;
-}
+};
 
 export function Footer({ contactEmail }: FooterProps) {
   return (
-    <footer className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200/50 dark:border-gray-700/50">
+    <footer className="border-gray-200/50 border-t bg-gray-50 dark:border-gray-700/50 dark:bg-gray-900">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           {/* Brand Section */}
           <div className="col-span-1 md:col-span-2">
-            <Logo to="/" className="mb-4" />
-            <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md">
-              A modern React Router + Cloudflare boilerplate with authentication, database, and server-side rendering. Perfect for building full-stack React applications.
+            <Logo className="mb-4" to="/" />
+            <p className="mb-6 max-w-md text-gray-600 dark:text-gray-400">
+              A modern React Router + Cloudflare boilerplate with
+              authentication, database, and server-side rendering. Perfect for
+              building full-stack React applications.
             </p>
             <div className="flex items-center gap-4">
               <a
-                href={siteConfig.githubUrl}
-                className="w-10 h-10 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors border border-gray-200 dark:border-gray-700"
                 aria-label="GitHub"
-                target="_blank"
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-200 bg-white transition-colors hover:bg-purple-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-purple-900/20"
+                href={siteConfig.githubUrl}
                 rel="noopener noreferrer"
+                target="_blank"
               >
-                <GitHubIcon className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                <GitHubIcon className="h-5 w-5 text-gray-600 dark:text-gray-400" />
               </a>
               <a
-                href={siteConfig.xUrl}
-                className="w-10 h-10 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors border border-gray-200 dark:border-gray-700"
                 aria-label="X"
-                target="_blank"
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-200 bg-white transition-colors hover:bg-purple-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-purple-900/20"
+                href={siteConfig.xUrl}
                 rel="noopener noreferrer"
+                target="_blank"
               >
-                <XIcon className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                <XIcon className="h-5 w-5 text-gray-600 dark:text-gray-400" />
               </a>
               {contactEmail && (
                 <a
-                  href={`mailto:${contactEmail}`}
-                  className="w-10 h-10 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors border border-gray-200 dark:border-gray-700"
                   aria-label="Email"
+                  className="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-200 bg-white transition-colors hover:bg-purple-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-purple-900/20"
+                  href={`mailto:${contactEmail}`}
                 >
-                  <Mail className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                  <Mail className="h-5 w-5 text-gray-600 dark:text-gray-400" />
                 </a>
               )}
             </div>
@@ -52,15 +55,23 @@ export function Footer({ contactEmail }: FooterProps) {
 
           {/* Legal Links */}
           <div>
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-4">Legal</h3>
+            <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">
+              Legal
+            </h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/privacy" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+                <Link
+                  className="text-gray-600 transition-colors hover:text-purple-600 dark:text-gray-400 dark:hover:text-purple-400"
+                  to="/privacy"
+                >
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/terms" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+                <Link
+                  className="text-gray-600 transition-colors hover:text-purple-600 dark:text-gray-400 dark:hover:text-purple-400"
+                  to="/terms"
+                >
                   Terms of Service
                 </Link>
               </li>
@@ -68,16 +79,16 @@ export function Footer({ contactEmail }: FooterProps) {
           </div>
 
           {/* Empty column for spacing */}
-          <div></div>
+          <div />
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-gray-200 dark:border-gray-700 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
+        <div className="mt-12 border-gray-200 border-t pt-8 dark:border-gray-700">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <p className="text-gray-600 text-sm dark:text-gray-400">
               © 2025 React Router Boilerplate. All rights reserved.
             </p>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
+            <p className="text-gray-600 text-sm dark:text-gray-400">
               Built with React Router + Cloudflare
             </p>
           </div>

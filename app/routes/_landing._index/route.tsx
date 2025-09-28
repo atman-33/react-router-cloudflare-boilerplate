@@ -1,7 +1,12 @@
-import { Button } from "~/components/ui/button";
-import { Card, CardHeader, CardTitle, CardDescription } from "~/components/ui/card";
+import { CheckCircle, Code, Database, Globe, Lock, Zap } from "lucide-react";
 import { Badge } from "~/components/ui/badge";
-import { CheckCircle, Database, Globe, Lock, Zap, Code } from "lucide-react";
+import { Button } from "~/components/ui/button";
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "~/components/ui/card";
 import { siteConfig } from "~/config/site-config";
 
 export function meta() {
@@ -12,18 +17,30 @@ export function meta() {
     { name: "author", content: siteConfig.author },
 
     // Open Graph
-    { property: "og:title", content: `${siteConfig.name} - Modern Full-Stack React Boilerplate` },
+    {
+      property: "og:title",
+      content: `${siteConfig.name} - Modern Full-Stack React Boilerplate`,
+    },
     { property: "og:description", content: siteConfig.description },
     { property: "og:type", content: "website" },
     { property: "og:url", content: siteConfig.appUrl },
-    { property: "og:image", content: `${siteConfig.appUrl}${siteConfig.ogpImage}` },
+    {
+      property: "og:image",
+      content: `${siteConfig.appUrl}${siteConfig.ogpImage}`,
+    },
     { property: "og:site_name", content: siteConfig.name },
 
     // Twitter Card
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: `${siteConfig.name} - Modern Full-Stack React Boilerplate` },
+    {
+      name: "twitter:title",
+      content: `${siteConfig.name} - Modern Full-Stack React Boilerplate`,
+    },
     { name: "twitter:description", content: siteConfig.description },
-    { name: "twitter:image", content: `${siteConfig.appUrl}${siteConfig.ogpImage}` },
+    {
+      name: "twitter:image",
+      content: `${siteConfig.appUrl}${siteConfig.ogpImage}`,
+    },
 
     // Additional SEO
     { name: "robots", content: "index, follow" },
@@ -36,26 +53,34 @@ const LandingIndex = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 px-4">
+      <section className="px-4 py-20">
         <div className="container mx-auto text-center">
-          <Badge variant="secondary" className="mb-4">
+          <Badge className="mb-4" variant="secondary">
             React Router v7 + Cloudflare
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-6">
+          <h1 className="mb-6 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text font-bold text-4xl text-transparent md:text-6xl">
             Modern Full-Stack
             <br />
             React Boilerplate
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-            Build production-ready React applications with server-side rendering, authentication,
-            database integration, and edge deployment on Cloudflare.
+          <p className="mx-auto mb-8 max-w-2xl text-gray-600 text-xl dark:text-gray-400">
+            Build production-ready React applications with server-side
+            rendering, authentication, database integration, and edge deployment
+            on Cloudflare.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
+            <Button
+              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+              size="lg"
+            >
               Get Started
             </Button>
-            <Button variant="outline" size="lg" asChild>
-              <a href="https://github.com/your-username/your-repo" target="_blank" rel="noopener noreferrer">
+            <Button asChild size="lg" variant="outline">
+              <a
+                href="https://github.com/your-username/your-repo"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 View on GitHub
               </a>
             </Button>
@@ -64,49 +89,54 @@ const LandingIndex = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 bg-gray-50 dark:bg-gray-900">
+      <section className="bg-gray-50 px-4 py-20 dark:bg-gray-900">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Everything You Need</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400">
+          <div className="mb-16 text-center">
+            <h2 className="mb-4 font-bold text-3xl md:text-4xl">
+              Everything You Need
+            </h2>
+            <p className="text-gray-600 text-xl dark:text-gray-400">
               A complete boilerplate with modern tools and best practices
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             <Card>
               <CardHeader>
-                <Zap className="w-8 h-8 text-purple-600 mb-2" />
+                <Zap className="mb-2 h-8 w-8 text-purple-600" />
                 <CardTitle>React Router v7</CardTitle>
                 <CardDescription>
-                  Full-stack React framework with server-side rendering and file-based routing
+                  Full-stack React framework with server-side rendering and
+                  file-based routing
                 </CardDescription>
               </CardHeader>
             </Card>
 
             <Card>
               <CardHeader>
-                <Globe className="w-8 h-8 text-blue-600 mb-2" />
+                <Globe className="mb-2 h-8 w-8 text-blue-600" />
                 <CardTitle>Cloudflare Edge</CardTitle>
                 <CardDescription>
-                  Deploy to the edge with Cloudflare Workers and Pages for global performance
+                  Deploy to the edge with Cloudflare Workers and Pages for
+                  global performance
                 </CardDescription>
               </CardHeader>
             </Card>
 
             <Card>
               <CardHeader>
-                <Database className="w-8 h-8 text-green-600 mb-2" />
+                <Database className="mb-2 h-8 w-8 text-green-600" />
                 <CardTitle>D1 Database</CardTitle>
                 <CardDescription>
-                  SQLite database at the edge with Drizzle ORM for type-safe queries
+                  SQLite database at the edge with Drizzle ORM for type-safe
+                  queries
                 </CardDescription>
               </CardHeader>
             </Card>
 
             <Card>
               <CardHeader>
-                <Lock className="w-8 h-8 text-red-600 mb-2" />
+                <Lock className="mb-2 h-8 w-8 text-red-600" />
                 <CardTitle>Authentication</CardTitle>
                 <CardDescription>
                   Built-in OAuth authentication with Google using better-auth
@@ -116,20 +146,22 @@ const LandingIndex = () => {
 
             <Card>
               <CardHeader>
-                <Code className="w-8 h-8 text-yellow-600 mb-2" />
+                <Code className="mb-2 h-8 w-8 text-yellow-600" />
                 <CardTitle>Modern Tooling</CardTitle>
                 <CardDescription>
-                  TypeScript, Tailwind CSS, Biome, and Vitest for the best developer experience
+                  TypeScript, Tailwind CSS, Biome, and Vitest for the best
+                  developer experience
                 </CardDescription>
               </CardHeader>
             </Card>
 
             <Card>
               <CardHeader>
-                <CheckCircle className="w-8 h-8 text-indigo-600 mb-2" />
+                <CheckCircle className="mb-2 h-8 w-8 text-indigo-600" />
                 <CardTitle>Production Ready</CardTitle>
                 <CardDescription>
-                  Optimized build, security best practices, and deployment automation
+                  Optimized build, security best practices, and deployment
+                  automation
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -138,16 +170,19 @@ const LandingIndex = () => {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="py-20 px-4">
+      <section className="px-4 py-20">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Built With Modern Tech</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400">
-              Carefully selected tools for performance, developer experience, and maintainability
+          <div className="mb-16 text-center">
+            <h2 className="mb-4 font-bold text-3xl md:text-4xl">
+              Built With Modern Tech
+            </h2>
+            <p className="text-gray-600 text-xl dark:text-gray-400">
+              Carefully selected tools for performance, developer experience,
+              and maintainability
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-6">
             {[
               "React Router",
               "Cloudflare",
@@ -160,11 +195,13 @@ const LandingIndex = () => {
               "Vitest",
               "shadcn/ui",
               "D1 Database",
-              "Workers"
+              "Workers",
             ].map((tech) => (
-              <div key={tech} className="text-center">
-                <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700">
-                  <p className="font-medium text-gray-900 dark:text-white">{tech}</p>
+              <div className="text-center" key={tech}>
+                <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                  <p className="font-medium text-gray-900 dark:text-white">
+                    {tech}
+                  </p>
                 </div>
               </div>
             ))}
@@ -173,15 +210,20 @@ const LandingIndex = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-purple-600 to-blue-600">
+      <section className="bg-gradient-to-r from-purple-600 to-blue-600 px-4 py-20">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="mb-6 font-bold text-3xl text-white md:text-4xl">
             Ready to Build Something Amazing?
           </h2>
-          <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-            Start with this boilerplate and focus on building your unique features instead of setting up infrastructure.
+          <p className="mx-auto mb-8 max-w-2xl text-purple-100 text-xl">
+            Start with this boilerplate and focus on building your unique
+            features instead of setting up infrastructure.
           </p>
-          <Button size="lg" variant="secondary" className="bg-white text-purple-600 hover:bg-gray-100">
+          <Button
+            className="bg-white text-purple-600 hover:bg-gray-100"
+            size="lg"
+            variant="secondary"
+          >
             Get Started Now
           </Button>
         </div>

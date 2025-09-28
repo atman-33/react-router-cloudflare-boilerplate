@@ -15,12 +15,9 @@
     "strict": true,
     "noEmit": true,
     "paths": {
-      "~/database/*": [
-        "./database/*"
-      ],
-      "~/*": [
-        "./app/*"
-      ]
-    }
+      "~/database/*": ["./database/*"],
+      "~/*": ["./app/*"]
+    },
+    "strictNullChecks": true
   }
 }

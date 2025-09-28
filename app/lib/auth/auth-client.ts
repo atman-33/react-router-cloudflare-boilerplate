@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/style/useNamingConvention: ignore */
 import { createAuthClient } from "better-auth/react";
 
 let authClient: ReturnType<typeof createAuthClient>;

@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/style/useNamingConvention: ignore */
 // This file is *ONLY* used by the CLI!
 // Run `auth:db:generate` to generate the drizzle auth schema found
 // in ./database/auth-schema.ts when ever you make changes to your

@@ -1,22 +1,22 @@
-import { getFormProps } from '@conform-to/react';
-import { parseWithZod } from '@conform-to/zod';
-import { useEffect } from 'react';
-import { Form } from 'react-router';
-import { Button } from '~/components/ui/button';
-import { Label } from '~/components/ui/label';
-import { ConformInput } from '~/components/conform/conform-input';
-import type { Route } from './+types/route';
-import { sampleFormSchema, useSampleForm } from './hooks/use-sample-form';
+import { getFormProps } from "@conform-to/react";
+import { parseWithZod } from "@conform-to/zod";
+import { useEffect } from "react";
+import { Form } from "react-router";
+import { ConformInput } from "~/components/conform/conform-input";
+import { Button } from "~/components/ui/button";
+import { Label } from "~/components/ui/label";
+import type { Route } from "./+types/route";
+import { sampleFormSchema, useSampleForm } from "./hooks/use-sample-form";
 
 export const action = async ({ request }: Route.ActionArgs) => {
   const formData = await request.formData();
   // Server-side validation check
   const submission = parseWithZod(formData, { schema: sampleFormSchema });
 
-  if (submission.status !== 'success') {
+  if (submission.status !== "success") {
     return {
       success: false,
-      message: 'Validation failed!',
+      message: "Validation failed!",
       submission: submission.reply(),
     };
   }
@@ -25,7 +25,7 @@ export const action = async ({ request }: Route.ActionArgs) => {
 
   return {
     success: true,
-    message: 'Registration completed successfully!',
+    message: "Registration completed successfully!",
     submission: submission.reply(),
   };
 };
@@ -34,10 +34,12 @@ const DemoConformPage = ({ actionData }: Route.ComponentProps) => {
   const [form, { name, email }] = useSampleForm();
 
   useEffect(() => {
+    // biome-ignore lint/suspicious/noConsole: ignore
     console.log(actionData);
 
     if (actionData) {
       // Display message
+      // biome-ignore lint/suspicious/noAlert: ignore
       window.confirm(actionData?.message);
     }
   }, [actionData]);
@@ -47,19 +49,19 @@ const DemoConformPage = ({ actionData }: Route.ComponentProps) => {
       <div>
         <Label htmlFor="name">Name</Label>
         <ConformInput
+          defaultValue={"abc"}
           metadata={name}
-          type="text"
           placeholder="name..."
-          defaultValue={'abc'}
+          type="text"
         />
       </div>
       <div>
         <Label htmlFor="email">Email</Label>
         <ConformInput
+          defaultValue={"abc@test.com"}
           metadata={email}
-          type="email"
           placeholder="email..."
-          defaultValue={'abc@test.com'}
+          type="email"
         />
       </div>
       <Button className="self-start" type="submit">

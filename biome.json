@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.0.6/schema.json",
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "vcs": {
     "enabled": false,
     "clientKind": "git",
@@ -9,8 +9,12 @@
     "includes": [
       "app/**/*.ts",
       "database/**/*.ts",
+      "!node_modules/**/*",
       "!worker-configuration.d.ts",
-      "!.react-router/**/*"
+      "!drizzle.config.ts",
+      "!.react-router/**/*",
+      "!app/app.css",
+      "!app/components/ui/**/*"
     ],
     "ignoreUnknown": false
   },
@@ -36,5 +40,6 @@
         "organizeImports": "on"
       }
     }
-  }
+  },
+  "extends": ["ultracite"]
 }

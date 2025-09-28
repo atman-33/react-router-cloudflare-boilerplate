@@ -1,9 +1,9 @@
 import { Outlet } from "react-router";
-import type { Route } from './+types/route';
+import type { Route } from "./+types/route";
 import { LandingFooter } from "./components/footer";
 import { LandingHeader } from "./components/header";
 
-export const loader = async ({ context }: Route.LoaderArgs) => {
+export const loader = ({ context }: Route.LoaderArgs) => {
   const contactEmail = context.cloudflare.env.CONTACT_EMAIL;
   return { contactEmail };
 };

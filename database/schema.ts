@@ -1,5 +1,6 @@
+/** biome-ignore-all lint/style/noExportedImports: ignore */
 import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
-import { account, session, user, verification } from './auth-schema';
+import { account, session, user, verification } from "./auth-schema";
 
 const guestBook = sqliteTable("guestBook", {
   id: integer().primaryKey({ autoIncrement: true }),
