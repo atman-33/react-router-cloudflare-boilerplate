@@ -9,7 +9,7 @@ export const loader = async ({ request, context }: Route.LoaderArgs) => {
   const auth = getAuth(context);
   const session = await auth.api.getSession({ headers: request.headers });
 
-  if (!(session && session.user)) {
+  if (!session?.user) {
     // Redirect unauthenticated users to the top page
     throw redirect("/");
   }

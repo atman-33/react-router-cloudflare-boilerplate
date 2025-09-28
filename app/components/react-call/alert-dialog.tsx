@@ -11,12 +11,12 @@ import {
   AlertDialog as ShadcnAlertDialog,
 } from "~/components/ui/alert-dialog";
 
-interface Props {
+type Props = {
   message: string;
   title?: string;
   cancelButtonLabel?: string;
   actionButtonLabel?: string;
-}
+};
 type Response = "cancel" | "action";
 
 export const AlertDialog = createCallable<Props, Response>(

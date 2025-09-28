@@ -31,6 +31,7 @@ export const loader = async () => {
       },
     });
   } catch (error) {
+    // biome-ignore lint/suspicious/noConsole: ignore
     console.error("Error generating sitemap:", error);
 
     // Return minimal sitemap on error

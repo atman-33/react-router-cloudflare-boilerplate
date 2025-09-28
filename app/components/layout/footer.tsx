@@ -1,12 +1,13 @@
 import { Mail } from "lucide-react";
 import { Link } from "react-router";
-import { GitHubIcon, XIcon } from "~/components/icons";
 import { Logo } from "~/components/logo";
 import { siteConfig } from "~/config/site-config";
+import { GitHubIcon } from "../icons/github-icon";
+import { XIcon } from "../icons/x-icon";
 
-interface FooterProps {
+type FooterProps = {
   contactEmail?: string;
-}
+};
 
 export function Footer({ contactEmail }: FooterProps) {
   return (

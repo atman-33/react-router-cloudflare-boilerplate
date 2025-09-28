@@ -1,13 +1,13 @@
 import { Star } from "lucide-react";
 import { cn } from "~/lib/utils";
 
-interface StarRatingProps {
+type StarRatingProps = {
   rating: number | null | undefined;
   maxRating?: number;
   size?: "sm" | "md" | "lg";
   className?: string;
   showValue?: boolean;
-}
+};
 
 export function StarRating({
   rating,
@@ -30,9 +30,11 @@ export function StarRating({
     const isFilled = starValue <= normalizedRating;
     const isPartial =
       starValue > normalizedRating && starValue - 1 < normalizedRating;
+    // biome-ignore lint/style/noMagicNumbers: ignore
     const fillPercentage = isPartial ? (normalizedRating % 1) * 100 : 0;
 
     return (
+      // biome-ignore lint/suspicious/noArrayIndexKey: ignore
       <div className="relative" key={index}>
         <Star
           className={cn(

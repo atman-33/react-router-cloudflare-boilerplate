@@ -2,7 +2,7 @@ import { getAuth } from "~/lib/auth/auth.server";
 import { getAuthClient } from "~/lib/auth/auth-client";
 import type { Route } from "./+types/route";
 
-export function meta({}: Route.MetaArgs) {
+export function meta() {
   return [
     { title: "Better Auth / React Router App + Cloudflare Workers" },
     {
@@ -17,12 +17,14 @@ export async function loader({ context, request }: Route.LoaderArgs) {
   const session = await auth.api.getSession({ headers: request.headers });
 
   return {
+    // biome-ignore lint/style/useNamingConvention: ignore
     baseURL: context.cloudflare.env.BETTER_AUTH_URL,
     user: session?.user,
   };
 }
 
 export default function DemoAuth({ loaderData }: Route.ComponentProps) {
+  // biome-ignore lint/style/useNamingConvention: ignore
   const { signIn } = getAuthClient({ baseURL: loaderData.baseURL });
 
   const signInGitHub = async () => {
@@ -51,12 +53,14 @@ export default function DemoAuth({ loaderData }: Route.ComponentProps) {
           <button
             className="dark:highlight-white/20 flex h-12 w-full items-center justify-center rounded-lg bg-slate-900 px-6 font-semibold text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 sm:w-auto dark:bg-sky-500 dark:hover:bg-sky-400"
             onClick={() => signInGitHub()}
+            type="button"
           >
             Login with GitHub
           </button>
           <button
             className="dark:highlight-white/20 flex h-12 w-full items-center justify-center rounded-lg bg-slate-900 px-6 font-semibold text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 sm:w-auto dark:bg-sky-500 dark:hover:bg-sky-400"
             onClick={() => signInGoogle()}
+            type="button"
           >
             Login with Google
           </button>

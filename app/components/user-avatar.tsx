@@ -1,13 +1,13 @@
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 
-interface UserAvatarProps {
+type UserAvatarProps = {
   user: {
     name: string;
     image?: string | null;
   };
   size?: "sm" | "md" | "lg";
   className?: string;
-}
+};
 
 /**
  * UserAvatar component displays user profile image with fallback to initials

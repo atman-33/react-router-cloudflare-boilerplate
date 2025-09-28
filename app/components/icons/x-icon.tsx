@@ -1,7 +1,9 @@
-interface XIconProps {
+// biome-ignore lint/style/useNamingConvention: ignore
+type XIconProps = {
   className?: string;
-}
+};
 
+// biome-ignore lint/style/useNamingConvention: ignore
 export function XIcon({ className }: XIconProps) {
   return (
     <svg

@@ -20,6 +20,8 @@ import {
 } from "~/components/ui/card";
 import type { Route } from "./+types/route";
 
+// biome-ignore lint/suspicious/useAwait: ignore
+// biome-ignore lint/correctness/noUnusedFunctionParameters: ignore
 export async function loader({ context }: Route.LoaderArgs) {
   // You can add any data loading logic here
   return {

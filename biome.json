@@ -9,10 +9,12 @@
     "includes": [
       "app/**/*.ts",
       "database/**/*.ts",
+      "!node_modules/**/*",
       "!worker-configuration.d.ts",
+      "!drizzle.config.ts",
       "!.react-router/**/*",
-      "!app/components/ui/**/*",
-      "!node_modules/**/*"
+      "!app/app.css",
+      "!app/components/ui/**/*"
     ],
     "ignoreUnknown": false
   },

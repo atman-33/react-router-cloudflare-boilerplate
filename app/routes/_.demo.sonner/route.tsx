@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/suspicious/noConsole: ignore */
 import { toast } from "sonner";
 import { showToast } from "~/components/custom-sonner";
 import { Button } from "~/components/ui/button";

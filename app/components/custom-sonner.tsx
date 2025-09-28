@@ -44,6 +44,7 @@ const showToast = (
   switch (type) {
     case "info":
       toast.info(message, {
+        // biome-ignore lint/style/noMagicNumbers: ignore
         duration: data?.duration ?? 2000,
         position: data?.position ?? "bottom-center",
         ...data,
@@ -51,6 +52,7 @@ const showToast = (
       break;
     case "success":
       toast.success(message, {
+        // biome-ignore lint/style/noMagicNumbers: ignore
         duration: data?.duration ?? 2000,
         position: data?.position ?? "bottom-center",
         ...data,
@@ -58,6 +60,7 @@ const showToast = (
       break;
     case "warning":
       toast.warning(message, {
+        // biome-ignore lint/style/noMagicNumbers: ignore
         duration: data?.duration ?? 2000,
         position: data?.position ?? "bottom-center",
         ...data,
@@ -65,6 +68,7 @@ const showToast = (
       break;
     case "error":
       toast.error(message, {
+        // biome-ignore lint/style/noMagicNumbers: ignore
         duration: data?.duration ?? 2000,
         position: data?.position ?? "bottom-center",
         ...data,

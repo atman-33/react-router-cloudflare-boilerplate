@@ -26,18 +26,16 @@ const DemoReactCallPage = () => {
   };
 
   return (
-    <>
-      <div className="container flex flex-col gap-4 p-8">
-        <div>react-call sample</div>
-        <Button
-          className="self-start"
-          onClick={async () => await handleButtonClick()}
-        >
-          Open dialog!
-        </Button>
-        <div>{`response: ${response}`}</div>
-      </div>
-    </>
+    <div className="container flex flex-col gap-4 p-8">
+      <div>react-call sample</div>
+      <Button
+        className="self-start"
+        onClick={async () => await handleButtonClick()}
+      >
+        Open dialog!
+      </Button>
+      <div>{`response: ${response}`}</div>
+    </div>
   );
 };
 

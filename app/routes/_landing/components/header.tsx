@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/style/useNamingConvention: ignore */
 import { useNavigate, useRouteLoaderData } from "react-router";
 import { Logo } from "~/components/logo";
 import { ThemeToggle } from "~/components/theme-toggle";

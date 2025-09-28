@@ -1,6 +1,6 @@
-interface GitHubIconProps {
+type GitHubIconProps = {
   className?: string;
-}
+};
 
 export function GitHubIcon({ className }: GitHubIconProps) {
   return (

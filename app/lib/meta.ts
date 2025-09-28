@@ -1,12 +1,12 @@
 import { siteConfig } from "~/config/site-config";
 
-export interface MetaOptions {
+export type MetaOptions = {
   title?: string;
   description?: string;
   keywords?: string[];
   ogpImage?: string;
   noIndex?: boolean;
-}
+};
 
 export function generateMeta(options: MetaOptions = {}) {
   const {

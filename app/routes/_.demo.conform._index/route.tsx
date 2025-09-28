@@ -34,10 +34,12 @@ const DemoConformPage = ({ actionData }: Route.ComponentProps) => {
   const [form, { name, email }] = useSampleForm();
 
   useEffect(() => {
+    // biome-ignore lint/suspicious/noConsole: ignore
     console.log(actionData);
 
     if (actionData) {
       // Display message
+      // biome-ignore lint/suspicious/noAlert: ignore
       window.confirm(actionData?.message);
     }
   }, [actionData]);

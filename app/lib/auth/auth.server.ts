@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/style/useNamingConvention: ignore */
 import type { BetterAuthOptions } from "better-auth";
 import { betterAuth } from "better-auth";
 import { CamelCasePlugin, Kysely } from "kysely";
