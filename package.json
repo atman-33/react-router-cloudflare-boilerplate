@@ -1,6 +1,7 @@
 {
   "name": "react-router-cloudflare-boilerplate",
   "private": true,
+  "version": "1.0.0",  
   "type": "module",
   "scripts": {
     "build": "react-router build",
