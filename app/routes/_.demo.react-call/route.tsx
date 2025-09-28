@@ -1,9 +1,9 @@
 // app/routes/__.demo.react-call._index/route.tsx
-import { useState } from 'react';
-import { AlertDialog } from '~/components/react-call/alert-dialog';
-import { Button } from '~/components/ui/button';
-import { generateMeta } from '~/lib/meta';
-import type { Route } from './+types/route';
+import { useState } from "react";
+import { AlertDialog } from "~/components/react-call/alert-dialog";
+import { Button } from "~/components/ui/button";
+import { generateMeta } from "~/lib/meta";
+import type { Route } from "./+types/route";
 
 export function meta(_: Route.MetaArgs) {
   return generateMeta({
@@ -19,8 +19,8 @@ const DemoReactCallPage = () => {
 
   const handleButtonClick = async () => {
     const res = await AlertDialog.call({
-      title: 'Sample',
-      message: 'Cancel or Continue?',
+      title: "Sample",
+      message: "Cancel or Continue?",
     });
     setResponse(res);
   };
@@ -30,8 +30,8 @@ const DemoReactCallPage = () => {
       <div className="container flex flex-col gap-4 p-8">
         <div>react-call sample</div>
         <Button
-          onClick={async () => await handleButtonClick()}
           className="self-start"
+          onClick={async () => await handleButtonClick()}
         >
           Open dialog!
         </Button>

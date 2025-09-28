@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import type { Route } from './+types/route';
+import type { Route } from "./+types/route";
 import { LandingFooter } from "./components/footer";
 import { LandingHeader } from "./components/header";
 

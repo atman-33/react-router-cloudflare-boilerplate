@@ -1,23 +1,23 @@
-import { type FieldMetadata, getInputProps } from '@conform-to/react';
-import { Input } from '~/components/ui/input';
+import { type FieldMetadata, getInputProps } from "@conform-to/react";
+import { Input } from "~/components/ui/input";
 
 type OptionType =
-  | 'number'
-  | 'search'
-  | 'color'
-  | 'date'
-  | 'datetime-local'
-  | 'email'
-  | 'file'
-  | 'hidden'
-  | 'month'
-  | 'password'
-  | 'range'
-  | 'tel'
-  | 'text'
-  | 'time'
-  | 'url'
-  | 'week';
+  | "number"
+  | "search"
+  | "color"
+  | "date"
+  | "datetime-local"
+  | "email"
+  | "file"
+  | "hidden"
+  | "month"
+  | "password"
+  | "range"
+  | "tel"
+  | "text"
+  | "time"
+  | "url"
+  | "week";
 
 interface ConformInputProps<Schema>
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -37,13 +37,13 @@ const ConformInput = <Schema,>({
       <Input
         {...inputProps}
         {...restProps}
-        className={`${className} ${!!metadata.errors && 'border-red-500'}`}
+        className={`${className} ${!!metadata.errors && "border-red-500"}`}
       />
       {metadata.errors && (
         <div>
           {metadata.errors.map((e, index) => (
-            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-            <p key={index} className="py-2 text-red-500">
+            // biome-ignore lint/suspicious/noArrayIndexKey: ignore
+            <p className="py-2 text-red-500" key={index}>
               {e}
             </p>
           ))}

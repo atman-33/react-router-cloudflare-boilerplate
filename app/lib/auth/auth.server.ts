@@ -14,7 +14,7 @@ export function createBetterAuth(
     OAUTH_GITHUB_CLIENT_SECRET: string;
     OAUTH_GOOGLE_CLIENT_ID: string;
     OAUTH_GOOGLE_CLIENT_SECRET: string;
-  },
+  }
 ): ReturnType<typeof betterAuth> {
   if (!authInstance) {
     authInstance = betterAuth({
@@ -57,7 +57,7 @@ export function getAuth(ctx: AppLoadContext): ReturnType<typeof betterAuth> {
         }),
         type: "sqlite",
       },
-      ctx.cloudflare.env,
+      ctx.cloudflare.env
     );
   }
 

@@ -51,7 +51,7 @@ export interface SitemapUrl {
 }
 
 export const generateSitemapUrls = async (
-  dynamicGenerators: DynamicRouteGenerator[] = [],
+  dynamicGenerators: DynamicRouteGenerator[] = []
 ): Promise<SitemapUrl[]> => {
   // Process static routes
   const staticUrls: SitemapUrl[] = publicRoutes

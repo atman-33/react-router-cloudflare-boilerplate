@@ -6,13 +6,13 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig(({ mode }) => ({
   plugins: [
-    cloudflare({ viteEnvironment: { name: 'ssr' } }),
+    cloudflare({ viteEnvironment: { name: "ssr" } }),
     tailwindcss(),
-    ...(mode === 'test' ? [] : [reactRouter()]),
+    ...(mode === "test" ? [] : [reactRouter()]),
     tsconfigPaths(),
   ],
   test: {
     globals: true,
-    setupFiles: ['./test/setup.ts'],    
+    setupFiles: ["./test/setup.ts"],
   },
 }));

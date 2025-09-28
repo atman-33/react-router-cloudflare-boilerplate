@@ -1,5 +1,5 @@
 // app/components/shared/react-call/alert-dialog.tsx
-import { createCallable } from 'react-call';
+import { createCallable } from "react-call";
 import {
   AlertDialogAction,
   AlertDialogCancel,
@@ -9,7 +9,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialog as ShadcnAlertDialog,
-} from '~/components/ui/alert-dialog';
+} from "~/components/ui/alert-dialog";
 
 interface Props {
   message: string;
@@ -17,7 +17,7 @@ interface Props {
   cancelButtonLabel?: string;
   actionButtonLabel?: string;
 }
-type Response = 'cancel' | 'action';
+type Response = "cancel" | "action";
 
 export const AlertDialog = createCallable<Props, Response>(
   ({ call, message, title, cancelButtonLabel, actionButtonLabel }) => (
@@ -28,14 +28,14 @@ export const AlertDialog = createCallable<Props, Response>(
           <AlertDialogDescription>{message}</AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel onClick={() => call.end('cancel')}>
-            {cancelButtonLabel ?? 'Cancel'}
+          <AlertDialogCancel onClick={() => call.end("cancel")}>
+            {cancelButtonLabel ?? "Cancel"}
           </AlertDialogCancel>
-          <AlertDialogAction onClick={() => call.end('action')}>
-            {actionButtonLabel ?? 'Continue'}
+          <AlertDialogAction onClick={() => call.end("action")}>
+            {actionButtonLabel ?? "Continue"}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </ShadcnAlertDialog>
-  ),
+  )
 );
